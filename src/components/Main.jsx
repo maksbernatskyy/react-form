@@ -22,16 +22,21 @@ export default function Main() {
         <>
         <main>
             <div className="container text-center">
+
+                {/* Form */}
                 <div className="my-5">
                     <form onSubmit={addTitle}>
+                        {/* Input per il titolo */}
                         <input 
                           type="text"
-                          value={titleGame}
-                          onChange={e => setTitleGame(e.target.value)} 
+                          value={newTitleGame}
+                          onChange={e => setNewTitleGame(e.target.value)} 
                         />
                         <button type="submit" className="ms-3">Invia</button>
                     </form>
                 </div>
+
+                {/* Lista */}
                 <div className="card text-start">
                     <ul>
                         {
