@@ -28,10 +28,16 @@ export default function Main() {
 
         {/* Update the array whith new object */}
         setTitleGame([...titleGame, newTitle])
-        
+
         {/* To increment the id */}
         setId(id + 1)
+    }
 
+    {/* Function for remove a title */}
+    function removeTitle(id) {
+        {/* Filtro titleGame assegnando a updateList tutta la lista tranne l'elemento con l'id uguale a quello cliccato */}
+        const updateList = titleGame.filter((thisTitle) => thisTitle.id !== id)
+        setTitleGame(updateList)
     }
     
 
@@ -58,7 +64,12 @@ export default function Main() {
                     <ul>
                         {
                             titleGame.map((thisItem) => (
-                                <li key={thisItem.id}>{thisItem.title}</li>
+                                <li key={thisItem.id} className="d-flex justify-content-between my-2">
+                                    <span>
+                                        {thisItem.title}
+                                    </span>
+                                    <button className="btn btn-danger" type="button" onClick={() => removeTitle(thisItem.id)}><i class="bi bi-trash"></i></button>
+                                </li>
                             ))
                         }
                     </ul>
