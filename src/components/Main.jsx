@@ -15,15 +15,21 @@ export default function Main() {
     {/* Contatore ID */}
     const [id, setId] = useState(list.length + 1)
 
+    {/* Function for add the title */}
     function addTitle(e) {
+        {/* Don't delete the value when submit */}
         e.preventDefault()
         
+        {/* Create new object when submit */}
         const newTitle = {
             id: id,
             title: newTitleGame
         }
 
+        {/* Update the array whith new object */}
         setTitleGame([...titleGame, newTitle])
+        
+        {/* To increment the id */}
         setId(id + 1)
 
     }
