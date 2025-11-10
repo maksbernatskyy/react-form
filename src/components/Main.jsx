@@ -7,14 +7,25 @@ export default function Main() {
     <list />
 
     {/* Array corrente */}
-    const [titleGame, setTitleGame] = useState('')
+    const [titleGame, setTitleGame] = useState(list)
 
     {/* Array clonato */}
     const [newTitleGame, setNewTitleGame] = useState('')
 
+    {/* Contatore ID */}
+    const [id, setId] = useState(list.length + 1)
+
     function addTitle(e) {
         e.preventDefault()
-        setTitleGame([...titleGame, newTitleGame])
+        
+        const newTitle = {
+            id: id,
+            title: newTitleGame
+        }
+
+        setTitleGame([...titleGame, newTitle])
+        setId(id + 1)
+
     }
     
 
@@ -40,7 +51,7 @@ export default function Main() {
                 <div className="card text-start">
                     <ul>
                         {
-                            list.map((thisItem) => (
+                            titleGame.map((thisItem) => (
                                 <li key={thisItem.id}>{thisItem.title}</li>
                             ))
                         }
