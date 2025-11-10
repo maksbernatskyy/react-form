@@ -9,8 +9,14 @@ export default function Main() {
         <>
         <main>
             <div className="container text-center">
-                <div className="card">
-
+                <div className="card text-start">
+                    <ul>
+                        {
+                            list.map((thisItem) => (
+                                <li key={thisItem.id}>{thisItem.title}</li>
+                            ))
+                        }
+                    </ul>
                 </div>
             </div>
         </main>
