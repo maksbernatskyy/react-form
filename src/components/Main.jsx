@@ -6,11 +6,15 @@ export default function Main() {
 
     <list />
 
+    {/* Array corrente */}
     const [titleGame, setTitleGame] = useState('')
 
-    function handleSubmit(e) {
+    {/* Array clonato */}
+    const [newTitleGame, setNewTitleGame] = useState('')
+
+    function addTitle(e) {
         e.preventDefault()
-        console.log(`Il titolo è ${titleGame}`)
+        setTitleGame([...titleGame, newTitleGame])
     }
     
 
@@ -19,7 +23,7 @@ export default function Main() {
         <main>
             <div className="container text-center">
                 <div className="my-5">
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={addTitle}>
                         <input 
                           type="text"
                           value={titleGame}
