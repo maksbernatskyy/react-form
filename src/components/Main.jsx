@@ -2,6 +2,8 @@ import { useState } from "react"
 
 import list from "../assets/list"
 
+import Item from "./Item"
+
 export default function Main() {
 
     <list />
@@ -64,12 +66,11 @@ export default function Main() {
                     <ul>
                         {
                             titleGame.map((thisItem) => (
-                                <li key={thisItem.id} className="d-flex justify-content-between my-2">
-                                    <span>
-                                        {thisItem.title}
-                                    </span>
-                                    <button className="btn btn-danger" type="button" onClick={() => removeTitle(thisItem.id)}><i class="bi bi-trash"></i></button>
-                                </li>
+                                <Item 
+                                   key={thisItem.id}
+                                   title={thisItem.title}
+                                   id={thisItem.id}
+                                />
                             ))
                         }
                     </ul>
